@@ -90,3 +90,22 @@ public class ApiExceptionHandler {
                 .body(posterService.findAll(pageable, query));
     }
 ```
+
+### exemplo Specification
+```java
+package br.com.springnature.specification;
+
+public class PosterSpecification {
+
+    public static Specification<Poster> titleContains(String title){
+
+        return ((root, query, criteriaBuilder) -> {
+           if (ObjectUtils.isEmpty(title)){
+               return null;
+           }
+           return criteriaBuilder.like(root.get("title"), "%" + title + "%");
+        });
+    }
+}
+
+```

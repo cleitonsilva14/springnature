@@ -78,3 +78,15 @@ public class ApiExceptionHandler {
 }
 
 ```
+
+### exemplo paginação
+
+```java
+    @GetMapping("/search")
+    public ResponseEntity<List<Poster>> search(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable, PosterQueryFilter query){
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(posterService.findAll(pageable, query));
+    }
+```

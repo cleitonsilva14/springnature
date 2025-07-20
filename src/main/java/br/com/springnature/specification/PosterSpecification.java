@@ -4,8 +4,6 @@ import br.com.springnature.model.Poster;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.ObjectUtils;
 
-import java.util.Objects;
-
 public class PosterSpecification {
 
     public static Specification<Poster> titleContains(String title){
